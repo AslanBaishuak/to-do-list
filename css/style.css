@@ -49,3 +49,18 @@ body {
   font-size: 16px;
   cursor: pointer;
 }
+.completed {
+  text-decoration: line-through;
+}
+.category-title {
+  font-weight: bold;
+}
+.task-item {
+  padding: 10px 0;
+}
+.delete-button {
+  margin: 0 5px;
+}
+.task-checkbox {
+  margin: 0 5px;
+}

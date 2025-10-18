@@ -9,11 +9,12 @@ let tasks = [
     id: 2,
     text: "Make money",
     category: "house",
-    completed:true,
-  }
+    completed: false,
+  },
 ];
 
 let nextId = 3;
+renderTasks();
 
 function renderTasks() {
   const container = document.querySelector("#taskContainer");
@@ -32,7 +33,7 @@ function renderTasks() {
       container.appendChild(title);
 
       categoryTasks.forEach((task) => {
-        const taskDiv = document.createElement("div"); 
+        const taskDiv = document.createElement("div");
         taskDiv.className = "task-item";
 
         const checkbox = document.createElement("input");
@@ -62,5 +63,36 @@ function renderTasks() {
     }
   });
 }
+function deleteTask(a) {
+  tasks = tasks.filter((task) => task.id !== a);
+  renderTasks();
+}
+function toggleTask(id) {
+  tasks = tasks.map((task) => {
+    if (task.id === id) {
+      return { ...task, completed: !task.completed };
+    }
+    return task;
+  });
+  renderTasks();
+}
+let add=document.querySelector(".add-button");
+let input=document.querySelector("#taskInput");
+let choosedCategory = document.querySelector("#categorySelect");
+add.addEventListener("click", function(){
+    let taskText=input.value;
+    let taskCategory=choosedCategory.value;
+    if (!taskText || !taskCategory) return; 
 
-renderTasks();
+    const newTask=
+      {
+        id:nextId,
+        text:taskText,
+        category:taskCategory,
+        completed:false,
+      };
+    tasks.push(newTask);
+    nextId++;
+    renderTasks();
+    input.value="";
+}); 
