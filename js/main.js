@@ -1,6 +1,4 @@
-let tasks = [
-
-];
+let tasks = [];
 
 let nextId = 0;
 
@@ -64,23 +62,22 @@ function toggleTask(id) {
   });
   renderTasks();
 }
-let add=document.querySelector(".add-button");
-let input=document.querySelector("#taskInput");
+let add = document.querySelector(".add-button");
+let input = document.querySelector("#taskInput");
 let choosedCategory = document.querySelector("#categorySelect");
-add.addEventListener("click", function(){
-    let taskText=input.value;
-    let taskCategory=choosedCategory.value;
-    if (!taskText || !taskCategory) return; 
+add.addEventListener("click", function () {
+  let taskText = input.value;
+  let taskCategory = choosedCategory.value;
+  if (!taskText || !taskCategory) return;
 
-    const newTask=
-      {
-        id:nextId,
-        text:taskText,
-        category:taskCategory,
-        completed:false,
-      };
-    tasks.push(newTask);
-    nextId++;
-    renderTasks();
-    input.value="";
-}); 
+  const newTask = {
+    id: nextId,
+    text: taskText,
+    category: taskCategory,
+    completed: false,
+  };
+  tasks.push(newTask);
+  nextId++;
+  renderTasks();
+  input.value = "";
+});
