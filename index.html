@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TO DO list</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="Title">Today</h1>
+      <div class="add-task-form">
+        <input
+          type="text"
+          class="task-input"
+          id="taskInput"
+          placeholder="Write a task..."
+        />
+        <select name="" id="categorySelect" class="category-select">
+          <option value="design">Design</option>
+          <option value="personal">Personal</option>
+          <option value="house">House</option>
+        </select>
+        <button class="add-button">Add</button>
+      </div>
+      <div id="taskContainer"></div>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
