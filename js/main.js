@@ -1,20 +1,8 @@
 let tasks = [
-  {
-    id: 1,
-    text: "Make Homework",
-    category: "personal",
-    completed: false,
-  },
-  {
-    id: 2,
-    text: "Make money",
-    category: "house",
-    completed: false,
-  },
+
 ];
 
-let nextId = 3;
-renderTasks();
+let nextId = 0;
 
 function renderTasks() {
   const container = document.querySelector("#taskContainer");
