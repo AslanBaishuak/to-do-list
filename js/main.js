@@ -65,6 +65,11 @@ function toggleTask(id) {
 let add = document.querySelector(".add-button");
 let input = document.querySelector("#taskInput");
 let choosedCategory = document.querySelector("#categorySelect");
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    add.click();
+  }
+});
 add.addEventListener("click", function () {
   let taskText = input.value;
   let taskCategory = choosedCategory.value;
