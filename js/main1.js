@@ -4,6 +4,7 @@ let tasks = [];
 // Счетчик для создания уникальных ID
 let nextId = 3;
 let filterCategory = "all";
+let filterPriority = "allPriority";
 
 // Функция для отображения всех задач
 function renderTasks() {
@@ -15,7 +16,7 @@ function renderTasks() {
 
   // Группируем задачи по категориям
   const categories = ["design", "personal", "house"];
-
+  const hardness = ["low", "medium", "high", "no-priority"];
   // Проходим по каждой категории
   categories.forEach((category) => {
     // Находим задачи этой категории
@@ -32,9 +33,10 @@ function renderTasks() {
       // Добавляем каждую задачу
       categoryTasks.forEach((task) => {
         const taskDiv = document.createElement("div");
-        taskDiv.className = "task-item";
+        taskDiv.className = `task-item ${task.priority}`;
 
         taskDiv.setAttribute("data-category", task.category);
+        taskDiv.setAttribute("data-priority", task.priority);
 
         // Создаем чекбокс (галочку)
         const checkbox = document.createElement("input");
@@ -43,12 +45,13 @@ function renderTasks() {
         checkbox.checked = task.completed;
         checkbox.onchange = () => toggleTask(task.id); // функция переключения состояния задачи при изменении чекбокса
 
+        const textPriority = document.createElement("p");
+        textPriority.textContent = task.priority;
+
         // Создаем текст задачи
         const text = document.createElement("span");
         text.className = "task-text";
         text.textContent = task.text;
-
-        // Условие: Добавляем класс для завершенных задач, если task.completed true
         if (task.completed) {
           text.classList.add("completed");
         }
@@ -62,6 +65,7 @@ function renderTasks() {
         // Добавляем все элементы в задачу
         taskDiv.appendChild(checkbox);
         taskDiv.appendChild(text);
+        taskDiv.appendChild(textPriority);
         taskDiv.appendChild(deleteBtn);
 
         // Добавляем задачу в контейнер
@@ -75,6 +79,7 @@ addTaskButton.addEventListener("click", addTask);
 function addTask() {
   const input = document.querySelector(".task-input");
   const category = document.querySelector("#categorySelect");
+  const priority = document.querySelector("#prioritySelect");
 
   let text = input.value.trim();
 
@@ -87,12 +92,12 @@ function addTask() {
     id: nextId,
     text: text,
     category: category.value,
+    priority: priority.value,
     completed: false,
   };
   nextId++;
   tasks.push(newTasks);
   input.value = "";
-  console.log(tasks);
   renderTasks();
 }
 
@@ -128,5 +133,19 @@ function changeSelectCategory(value) {
     }
   });
 }
-// Вызов функции чтобы все отобразилось при загрузке страницы
-renderTasks();
+const filterProritySelect = document.querySelector("#filterPrioritySelect");
+filterProritySelect.addEventListener("change", function () {
+  changePriorityCategory(filterProritySelect.value);
+});
+function changePriorityCategory(valuePrio) {
+  filterPriority = valuePrio;
+  const taskElementsPrio = document.querySelectorAll(".task-item");
+  taskElementsPrio.forEach((elementprio) => {
+    const priority = elementprio.getAttribute("data-priority");
+    if (elementprio == "allPriority" || priority == filterPriority) {
+      elementprio.classList.remove("hide");
+    } else {
+      elementprio.classList.add("hide");
+    }
+  });
+}

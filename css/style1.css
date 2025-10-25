@@ -97,3 +97,23 @@ body {
 .hide {
   display: none;
 }
+.priority-select {
+  padding: 15px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+}
+.task-item.low {
+  background-color: #c8f7c5;
+}
+.task-item.medium {
+  background-color: #fff3b0;
+}
+
+.task-item.high {
+  background-color: #ffcccc;
+}
+
+.task-item.no-priority {
+  background-color: #e0e0e0;
+}
