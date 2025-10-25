@@ -1,99 +1,99 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
-    padding: 40px 20px;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  padding: 40px 20px;
 }
 
 .container {
-    max-width: 800px;
-    margin: 0 auto;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .title {
-    font-size: 48px;
-    margin-bottom: 30px;
+  font-size: 48px;
+  margin-bottom: 30px;
 }
 
 .add-task-form {
-    display: flex;
-    gap: 10px; /* Отступы между элементами */
-    margin-bottom: 40px;
+  display: flex;
+  gap: 10px; /* Отступы между элементами */
+  margin-bottom: 40px;
 }
 
 #taskInput {
-    padding: 15px 20px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
 }
 
 .category-select {
-    padding: 15px 20px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
 }
 
 .add-button {
-    padding: 15px 30px;
-    border: none;
-    border-radius: 8px;
-    background-color: #333;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer; /* Курсор при наведении */
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  background-color: #333;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer; /* Курсор при наведении */
 }
-.category-title{
-    font-size: 16px;
-    font-weight: 700;
-    color: #d4a574;
-    letter-spacing: 1px;
-    margin: 30px 0 15px 0;
-} 
+.category-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #d4a574;
+  letter-spacing: 1px;
+  margin: 30px 0 15px 0;
+}
 .task-item {
-    display: flex;
-    background-color: white;
-    padding: 15px 20px ;
-    border-radius: 8px ;
-    margin-bottom: 10px ;
-    align-items: center;
-    gap:15px;
+  display: flex;
+  background-color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  align-items: center;
+  gap: 15px;
 }
 
-.task-checkbox{
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
+.task-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 
-.task-text{
-    font-size: 17px;
+.task-text {
+  font-size: 17px;
 }
 
-.task-text.completed{
-    text-decoration: line-through;
-    color: #999;
+.task-text.completed {
+  text-decoration: line-through;
+  color: #999;
 }
 
 .delete-button {
-    background-color: #ff4444;
-    color: #fff;
-    font-size: 12px;
-    cursor: pointer;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-} 
+  background-color: #ff4444;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+}
 
 .delete-button:hover {
-    background-color: #cc0000;
+  background-color: #cc0000;
 }
 .hide {
-    display: none;
+  display: none;
 }
