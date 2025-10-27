@@ -14,9 +14,8 @@ function renderTasks() {
   // Очищаем контейнер
   container.innerHTML = "";
 
-  // Группируем задачи по категориям
+  // Группируем задачи по категориям    
   const categories = ["design", "personal", "house"];
-  const hardness = ["low", "medium", "high", "no-priority"];
   // Проходим по каждой категории
   categories.forEach((category) => {
     // Находим задачи этой категории
@@ -55,7 +54,15 @@ function renderTasks() {
         if (task.completed) {
           text.classList.add("completed");
         }
-
+        const deadlineValue=new Date(task.deadline);
+        const newFormatDeadline=deadlineValue.toLocaleDateString("en-Gb",{
+            day: "numeric",
+            month:"long",
+            year:"numeric"
+        });
+        const deadline = document.createElement("span");
+        deadline.className="task-deadline";
+        deadline.textContent= newFormatDeadline;
         // Создаем кнопку удаления
         const deleteBtn = document.createElement("button");
         deleteBtn.className = "delete-button";
@@ -66,6 +73,7 @@ function renderTasks() {
         taskDiv.appendChild(checkbox);
         taskDiv.appendChild(text);
         taskDiv.appendChild(textPriority);
+        taskDiv.appendChild(deadline);
         taskDiv.appendChild(deleteBtn);
 
         // Добавляем задачу в контейнер
@@ -80,6 +88,7 @@ function addTask() {
   const input = document.querySelector(".task-input");
   const category = document.querySelector("#categorySelect");
   const priority = document.querySelector("#prioritySelect");
+  const deadline=document.querySelector("#deadlineInput");
 
   let text = input.value.trim();
 
@@ -93,11 +102,13 @@ function addTask() {
     text: text,
     category: category.value,
     priority: priority.value,
+    deadline: deadline.value,
     completed: false,
   };
   nextId++;
   tasks.push(newTasks);
   input.value = "";
+  deadline.value="";
   renderTasks();
 }
 

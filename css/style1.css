@@ -48,6 +48,25 @@ body {
   color: #fff;
   font-size: 16px;
   cursor: pointer; /* Курсор при наведении */
+  transition: 0.5s ease-in-out;
+}
+.add-button:hover {
+    background-color: #555;
+    transform: rotate(25deg);
+    margin-left: 20px;
+    
+}
+.add-button::after{
+    content: "😘";
+}
+.task-input{
+    transition: 0.5s ease-in-out;
+}
+.task-input:focus {
+    background-color: #f5ffcc;
+}
+.task-input::placeholder{
+    color: blue;
 }
 .category-title {
   font-size: 16px;
@@ -88,7 +107,7 @@ body {
   cursor: pointer;
   padding: 5px 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 5px;   
 }
 
 .delete-button:hover {
